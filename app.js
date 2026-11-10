@@ -398,7 +398,9 @@ document.addEventListener('keydown', e => {
 /* ---------- tooltip ---------- */
 const tip = $('#tip');
 function showTip(el) {
-  tip.textContent = el.dataset.tip; tip.classList.add('show');
+  if (el.dataset.img) { tip.innerHTML = `<img src="${el.dataset.img}" alt="${el.dataset.tip}" width="188" height="257"><span>${el.dataset.tip}</span>`; tip.classList.add('photo'); }
+  else { tip.textContent = el.dataset.tip; tip.classList.remove('photo'); }
+  tip.classList.add('show');
   const r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
   let x = Math.min(Math.max(10, r.left + r.width / 2 - tw / 2), innerWidth - tw - 10);
   let y = r.top - th - 10; if (y < 70) y = r.bottom + 10;

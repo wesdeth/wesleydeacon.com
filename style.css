@@ -247,3 +247,10 @@ body.intro-run .gated{filter:blur(14px);opacity:.55;pointer-events:none}
 .post .pm i{font-style:normal;margin:0 6px;opacity:.6}
 @media (max-width:620px){.post-grid{grid-template-columns:1fr}}
 @media (max-width:430px){.nav nav a[href="#posts"]{display:none}}
+
+.chip.pic img{width:17px;height:17px;border-radius:50%;object-fit:cover}
+.chip.pic{cursor:default}
+.tip.photo{padding:6px;max-width:none;width:200px;text-align:center;transform:translateY(6px) rotate(-1.5deg) scale(.97)}
+.tip.photo.show{transform:rotate(-1.5deg)}
+.tip.photo img{display:block;width:188px;height:257px;object-fit:cover;border-radius:7px}
+.tip.photo span{display:block;font-family:var(--hand);font-size:18px;line-height:1.2;padding:5px 0 1px;color:var(--ink)}

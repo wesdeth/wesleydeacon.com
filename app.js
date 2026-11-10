@@ -434,8 +434,8 @@ $('#themeBtn').addEventListener('click', () => {
   document.documentElement.classList.toggle('light', !d);
 });
 
-/* ---------- petals ---------- */
-const PAL = [['#ffb14a', '#ffd79a'], ['#ff7a2e', '#ffb27a'], ['#ff5a3c', '#ff9f80'], ['#ffc46b', '#fff0c9'], ['#ff9b8a', '#ffd3c7']];
+/* ---------- pixel signals ---------- */
+const PAL = [['#456eaa', '#829ab8'], ['#687789', '#a5afbb'], ['#293f59', '#7590aa'], ['#4f7097', '#a4bad0'], ['#b97c43', '#c6a27a']];
 const sprites = [];
 function makeSprite(col, blur, size) {
   const pad = blur * 2 + 4, s = size + pad * 2;
@@ -443,44 +443,48 @@ function makeSprite(col, blur, size) {
   const x = c.getContext('2d');
   x.filter = blur ? `blur(${blur}px)` : 'none';
   x.translate(s / 2, s / 2);
-  for (let k = 0; k < 5; k++) {
-    x.save(); x.rotate(k * Math.PI * 2 / 5);
-    const g = x.createLinearGradient(0, 0, 0, -size / 2);
-    g.addColorStop(0, col[1]); g.addColorStop(1, col[0]);
-    x.fillStyle = g; x.beginPath(); x.ellipse(0, -size * .23, size * .17, size * .24, 0, 0, Math.PI * 2); x.fill(); x.restore();
-  }
-  x.fillStyle = 'rgba(255,240,210,.9)'; x.beginPath(); x.arc(0, 0, size * .06, 0, Math.PI * 2); x.fill();
+  const unit = size / 7;
+  const cells = [[-2,1],[-1,1],[-1,0],[0,0],[1,0],[1,-1],[2,-1],[2,-2]];
+  cells.forEach(([cx,cy], i) => {
+    x.globalAlpha = .25 + i * .09;
+    x.fillStyle = i > 4 ? col[0] : col[1];
+    x.fillRect(cx * unit, cy * unit, unit * .72, unit * .72);
+  });
+  x.globalAlpha = .3;
+  x.strokeStyle = col[0]; x.lineWidth = 1.3;
+  x.beginPath(); x.moveTo(-size*.48, size*.32); x.lineTo(-size*.12,size*.32);
+  x.lineTo(size*.12,size*.08); x.lineTo(size*.45,size*.08); x.stroke();
   return c;
 }
-PAL.forEach(col => [0, 3, 9].forEach(b => sprites.push({ c: makeSprite(col, b, 120), b })));
+PAL.forEach(col => [0, 1, 3].forEach(b => sprites.push({ c: makeSprite(col, b, 120), b })));
 
-const cv = $('#petals'), ctx = cv.getContext('2d');
+const cv = $('#signals'), ctx = cv.getContext('2d');
 let W, H, DPR, flakes = [], mx = -999, my = -999;
 function resize() {
   DPR = Math.min(devicePixelRatio || 1, 2); W = innerWidth; H = innerHeight;
   cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  const n = Math.round(Math.min(26, Math.max(10, W / 60)));
+  const n = Math.round(Math.min(19, Math.max(7, W / 80)));
   flakes = Array.from({ length: n }, () => spawn(true));
 }
 function spawn(any) {
   const sp = sprites[(Math.random() * sprites.length) | 0];
-  const z = sp.b === 9 ? 1.4 + Math.random() * .8 : sp.b === 3 ? .8 + Math.random() * .4 : .35 + Math.random() * .35;
-  // keep the reading column clear on wide screens
-  let x = Math.random() * W;
-  const col = 320; if (W > 900 && Math.abs(x - W / 2) < col && Math.random() < .8) x = x < W / 2 ? x - col : x + col;
-  return { sp, x, y: any ? Math.random() * H : -80, z, r: Math.random() * 6.28, vr: (Math.random() - .5) * .01, vy: .12 + z * .22, ph: Math.random() * 6.28, a: sp.b === 9 ? .55 : .85 };
+  const z = .65 + Math.random() * 1.15;
+  const margin = W > 900 ? (W - 700) / 2 : 24;
+  const x = Math.random() < .5 ? Math.random()*margin : W-Math.random()*margin;
+  return { sp, x, baseX:x, y: any ? Math.random() * H : H+80, z, r: 0, vy: .08 + z * .12, ph: Math.random() * 6.28, a: W < 900 ? .25 : .65 };
 }
 addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
 function frame(t) {
   ctx.clearRect(0, 0, W, H);
   const dark = document.documentElement.classList.contains('dark');
   for (const f of flakes) {
-    f.y += f.vy; f.r += f.vr; f.x += Math.sin(t / 1800 + f.ph) * .25 * f.z;
+    if (!reduce) f.y -= f.vy;
+    f.x = f.baseX + Math.sin(t / 6000 + f.ph) * 12;
     const dx = f.x - mx, dy = f.y - my, d2 = dx * dx + dy * dy;
-    if (d2 < 14000) { f.x += dx / Math.sqrt(d2 + 1) * 1.2; f.y += dy / Math.sqrt(d2 + 1) * .6; f.vr += .0006; }
-    if (f.y > H + 90) Object.assign(f, spawn(false));
-    const s = 46 * f.z;
-    ctx.save(); ctx.globalAlpha = f.a * (dark ? .45 : 1); ctx.translate(f.x, f.y); ctx.rotate(f.r);
+    if (!reduce && d2 < 14000) f.x += dx / Math.sqrt(d2 + 1) * 16;
+    if (f.y < -90) Object.assign(f, spawn(false));
+    const s = 72 * f.z;
+    ctx.save(); ctx.globalAlpha = f.a * (dark ? .8 : 1); ctx.translate(f.x, f.y);
     ctx.drawImage(f.sp.c, -s * f.sp.c.width / 240, -s * f.sp.c.height / 240, s * f.sp.c.width / 120, s * f.sp.c.height / 120);
     ctx.restore();
   }
@@ -489,21 +493,32 @@ function frame(t) {
 resize(); addEventListener('resize', resize);
 requestAnimationFrame(frame);
 
-/* ---------- flower bed in footer ---------- */
+/* ---------- signal horizon in footer ---------- */
 const bed = $('#bed'), bx = bed.getContext('2d');
 function drawBed() {
   const w = bed.clientWidth, h = bed.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
   bed.width = w * dpr; bed.height = h * dpr; bx.setTransform(dpr, 0, 0, dpr, 0, 0);
   let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  const n = Math.round(w / 26);
+  const n = Math.round(w / 16);
   for (let k = 0; k < n; k++) {
-    const blurIdx = rnd() < .35 ? 2 : rnd() < .5 ? 1 : 0;
-    const sp = sprites[((rnd() * PAL.length) | 0) * 3 + blurIdx];
-    const s = (blurIdx === 2 ? 150 : 70 + rnd() * 70) * (w < 620 ? .7 : 1);
-    const x = rnd() * w, y = h * .35 + rnd() * h * .75;
-    bx.save(); bx.globalAlpha = blurIdx === 2 ? .6 : .9; bx.translate(x, y); bx.rotate(rnd() * 6.28);
-    bx.drawImage(sp.c, -s * sp.c.width / 240, -s * sp.c.height / 240, s * sp.c.width / 120, s * sp.c.height / 120); bx.restore();
+    const x = k * 16;
+    const height = 12 + rnd()*h*.38 + Math.sin(k*.13)*h*.1;
+    const blocks = Math.floor(height/10);
+    for(let row=0; row<blocks; row++){
+      bx.fillStyle = PAL[k%PAL.length][0];
+      bx.globalAlpha = .09 + .22*(row/Math.max(1,blocks));
+      bx.fillRect(x,h-row*10-7,7,7);
+    }
+    if(k%7===0){
+      bx.globalAlpha=.35;
+      bx.fillRect(x,h-height-20-rnd()*45,4,4);
+    }
   }
 }
 drawBed(); addEventListener('resize', drawBed);
+// Keep the static reduced-motion canvas in sync with viewport and theme changes.
+if(reduce){
+  addEventListener('resize',()=>frame(0));
+  $('#themeBtn').addEventListener('click',()=>frame(0));
+}
 })();

@@ -368,7 +368,6 @@ function finish() {
   words.forEach(w => w.classList.add('on'));
   document.body.classList.remove('intro-run');
   ctl.classList.add('gone');
-  try { sessionStorage.setItem('wd-intro', '1'); } catch (e) {}
 }
 function step() {
   if (i >= words.length) return setTimeout(finish, 250);
@@ -380,7 +379,7 @@ function step() {
   if (w === w.parentNode.lastElementChild && w.parentNode.tagName === 'P') d += 180;
   timer = setTimeout(step, d / speed);
 }
-let seen = false; try { seen = sessionStorage.getItem('wd-intro') === '1'; } catch (e) {}
+const seen = false;
 if (reduce || seen || location.hash) { ctl.classList.add('gone'); words.forEach(w => w.classList.add('on')); done = true; }
 else { document.body.classList.add('intro-run'); timer = setTimeout(step, 1300); }
 ff.addEventListener('click', () => { speed = speed === 1 ? 5 : 1; ff.classList.toggle('fast', speed > 1); });
@@ -391,7 +390,6 @@ addEventListener('keydown', e => { if (!done && e.key === 'Escape') finish(); })
 $('#themeBtn').addEventListener('click', () => {
   const d = document.documentElement.classList.toggle('dark');
   document.documentElement.classList.toggle('light', !d);
-  try { localStorage.setItem('wd-theme', d ? 'dark' : 'light'); } catch (e) {}
 });
 
 /* ---------- petals ---------- */

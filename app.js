@@ -283,7 +283,7 @@ const ACCOUNTS = [
   { t: 'people', name: 'Michael Ho', handle: '@mxchaelho', url: 'https://x.com/mxchaelho', initials: 'MH', av: '#3b6fe0', pf: ['x'], role: 'Ghostwrote as the market analyst. 3 to 4 originals a week.', stat: ['4.60%', 'engagement on originals'] },
   { t: 'people', name: 'Fred Hsu', handle: '@heyheyfred', url: 'https://x.com/heyheyfred', initials: 'FH', av: '#e08a1e', pf: ['x'], role: 'Ghostwrote as the domain veteran. Operator stories and real estate analogies.', stat: ['+429%', 'founder impressions'] },
   { t: 'people', name: 'Inderpreet Singh', handle: '@InderpreetSingh', url: 'https://x.com/InderpreetSingh', initials: 'IS', av: '#2b9c74', pf: ['x'], role: 'Product voice. Daily engagement and build-in-public updates.', stat: ['Daily', 'reply engine'] },
-  { t: 'people', name: 'Captured & Coordinated', handle: '@capturedandcoordinated_', url: 'https://www.instagram.com/capturedandcoordinated_/', initials: 'CC', av: '#d9467a', pf: ['instagram'], role: 'Skincare Reels plus SEO and Meta ads for her shop on $500 a month.', stat: ['+300%', 'sales in 3 months'] },
+  { t: 'people', name: 'Captured & Coordinated', handle: '@capturedandcoordinated_', url: 'https://www.instagram.com/capturedandcoordinated_/', initials: 'CC', av: '#d9467a', pf: ['instagram'], role: 'Wedding content creation plus SEO and Meta ads for weddings.', stat: ['+300%', 'sales in 3 months'] },
   { t: 'people', name: 'Wes Deacon', handle: '@wesdeth', url: 'https://x.com/wesdeth', initials: 'WD', av: '#1b1b1b', pf: ['x'], role: 'My own account. Building in public, AI tools and marketing notes.', stat: ['DMs open', 'say hi'] }
 ];
 const PF = { x: 'assets/x.png', youtube: 'assets/youtube.png', instagram: 'assets/instagram.png' };

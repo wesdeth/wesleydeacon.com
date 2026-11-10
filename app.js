@@ -261,10 +261,11 @@ const WRITING = [
 
 const EXPERIENCE = [
   ['Part time Social & GTM Manager', 'Capy.sc', 'Brand and founder social for an AI secrets manager', 'Now'],
-  ['Head of Social', 'D3 · Doma Protocol', 'X, LinkedIn, YouTube, founder voices, Doma OnAir, design team', '2025–26'],
-  ['Head of Social & Marketing', 'ENS Labs', 'Led marketing and social: daily content calendar, all content, events, partner launches', 'Earlier'],
+  ['Head of Social', 'D3 · Doma Protocol', 'Ran growth marketing and all social: X, LinkedIn, YouTube, founder voices, Doma OnAir, design team', 'Nov 2025–Nov 2026'],
+  ['Head of Social & Marketing', 'ENS Labs', 'Led marketing and social: daily content calendar, all content, events, partner launches', 'Jul 2024–Nov 2025'],
+  ['Grant Reviewer', 'Thrive Protocol', 'Reviewed grants for the Arbitrum ecosystem', 'Apr–Dec 2024'],
   ['GTM Specialist & Marketing Advisor', 'Asymmetry Finance', 'Ran the @asymmetryfin X account, positioning and global expansion', 'Mar–Aug 2024', 'https://x.com/asymmetryfin'],
-  ['Head of Growth', 'Webacy', 'One of the first hires. Web3 security growth to 100K+ users', 'Earlier']
+  ['Chief of Growth & Partnerships', 'Webacy', 'One of the first hires. Growth + Ops (Mar 2022–Oct 2023), Chief of Growth & Partnerships (Aug 2023–Aug 2024), then Advisor (Jun 2024–Nov 2025)', 'Mar 2022–Nov 2025']
 ];
 
 /* ---------- render ---------- */
@@ -301,6 +302,34 @@ $$('.filters button').forEach(b => b.addEventListener('click', () => {
   $$('.filters button').forEach(x => x.setAttribute('aria-selected', x === b));
   $$('.acc').forEach(a => a.classList.toggle('hide', b.dataset.f !== 'all' && a.dataset.t !== b.dataset.f));
 }));
+const POSTS = [
+  { id: '1947644046962528641', date: 'Jul 22, 2025', kind: 'Partner launch',
+    text: 'PayPal and Venmo support ENS\nSend crypto to names like validator.eth - not 0x123...abc.\n\nENS resolution is built into both platforms\u2019 crypto flows, reducing address errors and improving transaction confidence.\n\nFrom PYUSD to .eth - no more 0x copypasta',
+    stats: [['43.9K', 'views']] },
+  { id: '1903107410304417919', date: 'Mar 21, 2025', kind: 'Short-form video', media: 'GIF',
+    text: 'Use ENS to Venmo your friends PYUSD on Solana and Ethereum.\n\nIf you have a Solana or Ethereum address connected to your ENS name, you can receive PayPal USD (PYUSD) via @Venmo just like that.',
+    stats: [['48K', 'views'], ['265', 'likes'], ['116', 'reposts']] },
+  { id: '1983942431747010826', date: 'Oct 30, 2025', kind: 'Product launch', media: 'Video',
+    text: 'New in the ENS App: set a header image for your ENS name.\n\nAnd if you use the \u2018Upload Image\u2019 option for your header or avatar, you can make gasless changes anytime.\n\nJust like your avatar, now you can personalize your profile with a header.',
+    stats: [['53.7K', 'views'], ['281', 'likes'], ['84', 'reposts']] },
+  { id: '1913246435056996503', date: 'Apr 18, 2025', kind: 'Tutorial', thread: true, media: 'Video clips',
+    text: 'The ENS Manager App offers various ways of extending name ownership.\n\nYou can:\n\u2192 Extend by exact date\n\u2192 Renew way in advance\n\u2192 Even extend someone else\u2019s name\n\nHere\u2019s how (and why that matters)',
+    stats: [['6.9K', 'views'], ['106', 'likes'], ['19', 'reposts']] }
+];
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const fmt = s => esc(s).replace(/(@[A-Za-z0-9_]+)/g, '<span class="hlnk">$1</span>').replace(/\n/g, '<br>');
+$('#postGrid').innerHTML = POSTS.map(p => `
+  <a class="post" href="https://x.com/ensdomains/status/${p.id}" target="_blank" rel="noopener" aria-label="Open ENS post from ${p.date} on X">
+    <div class="ph">
+      <img src="assets/ens.png" alt="">
+      <div class="who"><b>ens.eth</b> <span>@ensdomains</span></div>
+      <svg class="xl" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.77L17.75 3zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43z"/></svg>
+    </div>
+    <div class="pk"><span>${p.kind}</span>${p.thread ? '<span class="th">Thread</span>' : ''}${p.media ? `<span>${p.media}</span>` : ''}</div>
+    <p class="pt">${fmt(p.text)}</p>
+    <div class="pf2"><span class="pd">${p.date}</span><span class="pm">${p.stats.map(([a, b]) => `<b>${a}</b> ${b}`).join('<i>·</i>')}</span></div>
+  </a>`).join('');
+
 const FORMATS = ['Founder ghostwriting', 'X threads', 'Reply strategy', 'Live shows', 'Short-form video', 'Shorts and Reels', 'Launch campaigns', 'Animated stat posts', 'Weekly recap blogs', 'Co-marketing', 'Paid social A/B tests', 'Creator programs', 'Content calendars', 'LinkedIn', 'AI voice agents', 'Telegram alerts'];
 $('#formats').innerHTML = [...FORMATS, ...FORMATS].map(f => `<span>${f}</span>`).join('');
 

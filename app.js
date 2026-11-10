@@ -64,7 +64,7 @@ const CASES = [
   tldr: 'Nearly half of ENS support tickets were basic how-to questions. I rebuilt the content strategy around them, and in Q3 renewals rose 45% while video views on X rose 67%.',
   brief: 'Users kept getting stuck on core actions like registering, renewing and changing owners. The growth team needed scannable, visual education and real examples of ENS working inside partner products, plus a content calendar that actually ran.',
   audience: ['<b>New and existing .eth holders</b> who needed to finish a task, not read documentation.', '<b>Builders and partners</b> looking for proof that ENS integrations deliver value.'],
-  approach: ['<b>Tickets as the calendar.</b> I reworked the historical strategy so the most common support questions became the next tutorials, threads and short videos.', '<b>Production.</b> Wrote and oversaw 16 new blog posts and 15 tutorials aimed at the biggest friction points.', '<b>Ecosystem proof.</b> Helped launch five integration case studies, including Base, Uniswap, GoDaddy and PayPal. Those alone drove 8,000+ visits to the ENS ecosystem page.', '<b>AI-assisted workflow.</b> Used generative AI for outlines and first drafts so the team could ship faster without lowering the bar.'],
+  approach: ['<b>Owned the whole channel.</b> I led marketing and social, built the daily content calendar, and created all of the content, including event coverage.', '<b>Tickets as the calendar.</b> I reworked the historical strategy so the most common support questions became the next tutorials, threads and short videos.', '<b>Production.</b> Wrote and oversaw 16 new blog posts and 15 tutorials aimed at the biggest friction points.', '<b>Ecosystem proof.</b> Helped launch five integration case studies, including Base, Uniswap, GoDaddy and PayPal. Those alone drove 8,000+ visits to the ENS ecosystem page.', '<b>AI-assisted workflow.</b> Used generative AI for outlines and first drafts so the team could ship faster without lowering the bar.'],
   stats: [['+45%', '.eth renewals, Q3 vs Q2'], ['+67%', 'video views on X'], ['+12.1%', '@ensdomains followers in 3 months'], ['8,000+', 'visits from partner case studies']],
   links: [['Read the full case study', 'https://exclusive-garage-18a.notion.site/Case-Study-Scaling-ENS-Adoption-Through-AI-Native-Content-Education-40116635fd7c80bba6eaf64c4afa0b20'], ['ENS × Base case study', 'https://ens.domains/ecosystem/base']],
   note: 'Renewal counts come from ENS onchain data. Social numbers come from X analytics.'
@@ -263,7 +263,7 @@ const EXPERIENCE = [
   ['Social & GTM', 'Capy.sc', 'Brand and founder social for an AI secrets manager', 'Now'],
   ['Builder', 'ViralGhost, MichaelBot, Social Alerts', 'AI tools for social teams', 'Now'],
   ['Head of Social', 'D3 · Doma Protocol', 'X, LinkedIn, YouTube, founder voices, Doma OnAir, design team', '2025–26'],
-  ['Head of Social & Marketing', 'ENS Labs', 'Content, education, partner launches, paid social', 'Earlier'],
+  ['Head of Social & Marketing', 'ENS Labs', 'Led marketing and social: daily content calendar, all content, events, partner launches', 'Earlier'],
   ['Head of Growth', 'Webacy', 'One of the first hires. Web3 security growth to 100K+ users', 'Earlier']
 ];
 
@@ -273,7 +273,7 @@ CASES.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
 CASES.forEach((c, k) => { c.extra = k >= 6; });
 
 const ACCOUNTS = [
-  { t: 'company', name: 'ENS', handle: '@ensdomains', url: 'https://x.com/ensdomains', img: 'ens.png', pf: ['x', 'youtube'], role: 'Head of Social & Marketing. Tutorials, partner launches, paid social.', stat: ['+12.1%', 'followers in 3 months'] },
+  { t: 'company', name: 'ENS', handle: '@ensdomains', url: 'https://x.com/ensdomains', img: 'ens.png', pf: ['x', 'youtube'], role: 'Led marketing and social. Daily calendar, all content, events and launches.', stat: ['+12.1%', 'followers in 3 months'] },
   { t: 'company', name: 'Doma Protocol', handle: '@domaprotocol', url: 'https://x.com/domaprotocol', img: 'doma.png', pf: ['x', 'youtube'], role: 'Head of Social. Weekly threads, launches, Doma OnAir, LinkedIn and YouTube.', stat: ['1.55M', 'impressions in 6 months'] },
   { t: 'company', name: 'D3', handle: '@D3inc', url: 'https://x.com/D3inc', img: 'd3.png', pf: ['x'], role: 'Corporate voice for the company behind Doma. Partnerships and industry news.', stat: ['B2B', 'industry voice'] },
   { t: 'company', name: 'Webacy', handle: '@mywebacy', url: 'https://x.com/mywebacy', img: 'webacy.png', pf: ['x', 'youtube'], role: 'One of the first hires. Made Web3 security make sense to everyday users.', stat: ['100K+', 'product users'] },

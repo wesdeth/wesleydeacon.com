@@ -276,7 +276,7 @@ CASES.forEach((c, k) => { c.extra = k >= 6; });
 const ACCOUNTS = [
   { t: 'company', name: 'ENS', handle: '@ensdomains', url: 'https://x.com/ensdomains', img: 'ens.png', pf: ['x', 'youtube'], role: 'Led marketing and social. Daily calendar, all content, events and launches.', stat: ['+12.1%', 'followers in 3 months'] },
   { t: 'company', name: 'Doma Protocol', handle: '@domaprotocol', url: 'https://x.com/domaprotocol', img: 'doma.png', pf: ['x', 'youtube'], role: 'Head of Social. Weekly threads, launches, Doma OnAir, LinkedIn and YouTube.', stat: ['1.55M', 'impressions in 6 months'] },
-  { t: 'company', name: 'D3', handle: '@D3inc', url: 'https://x.com/D3inc', img: 'd3.png', pf: ['x'], role: 'Corporate voice for the company behind Doma. Partnerships and industry news.', stat: ['B2B', 'industry voice'] },
+  { t: 'company', name: 'D3', handle: '@D3inc', url: 'https://x.com/D3inc', img: 'd3.png', pf: ['x'], role: 'Corporate voice for the company behind Doma. Partnerships and industry news.' },
   { t: 'company', name: 'Webacy', handle: '@mywebacy', url: 'https://x.com/mywebacy', img: 'webacy.png', pf: ['x', 'youtube'], role: 'One of the first hires. Made Web3 security make sense to everyday users.', stat: ['100K+', 'product users'] },
   { t: 'company', name: 'Asymmetry', handle: '@asymmetryfin', url: 'https://x.com/asymmetryfin', img: 'asymmetry.png', pf: ['x'], role: 'GTM Specialist & Marketing Advisor. Ran the X account, positioning and global expansion.', stat: ['2024', 'Mar to Aug'] },
   { t: 'company', live: true, name: 'Capy', handle: '@capythoughts', url: 'https://x.com/capythoughts', img: 'capy.png', pf: ['x', 'youtube'], role: 'Part time Social & GTM Manager. Brand and founder social for an AI secrets manager.', stat: ['52', 'post launch calendar'] },
@@ -285,7 +285,7 @@ const ACCOUNTS = [
   { t: 'people', name: 'Fred Hsu', handle: '@heyheyfred', url: 'https://x.com/heyheyfred', initials: 'FH', av: '#e08a1e', pf: ['x'], role: 'Ghostwrote as the domain veteran. Operator stories and real estate analogies.', stat: ['+429%', 'founder impressions'] },
   { t: 'people', name: 'Inderpreet Singh', handle: '@InderpreetSingh', url: 'https://x.com/InderpreetSingh', initials: 'IS', av: '#2b9c74', pf: ['x'], role: 'Product voice. Daily engagement and build-in-public updates.', stat: ['Daily', 'reply engine'] },
   { t: 'people', name: 'Captured & Coordinated', handle: '@capturedandcoordinated_', url: 'https://www.instagram.com/capturedandcoordinated_/', initials: 'CC', av: '#d9467a', pf: ['instagram'], role: 'Wedding content creation plus SEO and Meta ads for weddings.', stat: ['+300%', 'sales in 3 months'] },
-  { t: 'people', name: 'Wes Deacon', handle: '@wesdeth', url: 'https://x.com/wesdeth', initials: 'WD', av: '#1b1b1b', pf: ['x'], role: 'My own account. Building in public, AI tools and marketing notes.', stat: ['DMs open', 'say hi'] }
+  { t: 'people', name: 'Wes Deacon', handle: '@wesdeth', url: 'https://x.com/wesdeth', initials: 'WD', av: '#1b1b1b', pf: ['x'], role: 'My own account. Building in public, AI tools and marketing notes.' }
 ];
 const PF = { x: 'assets/x.png', youtube: 'assets/youtube.png', instagram: 'assets/instagram.png' };
 $('#accGrid').innerHTML = ACCOUNTS.map(a => `
@@ -296,7 +296,7 @@ $('#accGrid').innerHTML = ACCOUNTS.map(a => `
       <div><div class="nm">${a.name}${a.live ? '<span class="live">Now</span>' : ''}</div><div class="hd">${a.handle}</div></div>
     </div>
     <p class="role">${a.role}</p>
-    <div class="bottom"><div class="st"><b>${a.stat[0]}</b><span>${a.stat[1]}</span></div><div class="pf">${a.pf.map(p => `<img src="${PF[p]}" alt="${p}">`).join('')}</div></div>
+    <div class="bottom">${a.stat ? `<div class="st"><b>${a.stat[0]}</b><span>${a.stat[1]}</span></div>` : '<div></div>'}<div class="pf">${a.pf.map(p => `<img src="${PF[p]}" alt="${p}">`).join('')}</div></div>
   </a>`).join('');
 $$('.filters button').forEach(b => b.addEventListener('click', () => {
   $$('.filters button').forEach(x => x.setAttribute('aria-selected', x === b));

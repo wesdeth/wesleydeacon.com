@@ -263,7 +263,7 @@ const EXPERIENCE = [
   ['Part time Social & GTM Manager', 'Capy.sc', 'Brand and founder social for an AI secrets manager', 'Now'],
   ['Head of Social', 'D3 · Doma Protocol', 'X, LinkedIn, YouTube, founder voices, Doma OnAir, design team', '2025–26'],
   ['Head of Social & Marketing', 'ENS Labs', 'Led marketing and social: daily content calendar, all content, events, partner launches', 'Earlier'],
-  ['GTM Specialist & Marketing Advisor', 'Asymmetry Finance', 'Ran the @asymmetryfin X account, positioning and global expansion', 'Earlier'],
+  ['GTM Specialist & Marketing Advisor', 'Asymmetry Finance', 'Ran the @asymmetryfin X account, positioning and global expansion', 'Mar–Aug 2024', 'https://x.com/asymmetryfin'],
   ['Head of Growth', 'Webacy', 'One of the first hires. Web3 security growth to 100K+ users', 'Earlier']
 ];
 
@@ -277,7 +277,7 @@ const ACCOUNTS = [
   { t: 'company', name: 'Doma Protocol', handle: '@domaprotocol', url: 'https://x.com/domaprotocol', img: 'doma.png', pf: ['x', 'youtube'], role: 'Head of Social. Weekly threads, launches, Doma OnAir, LinkedIn and YouTube.', stat: ['1.55M', 'impressions in 6 months'] },
   { t: 'company', name: 'D3', handle: '@D3inc', url: 'https://x.com/D3inc', img: 'd3.png', pf: ['x'], role: 'Corporate voice for the company behind Doma. Partnerships and industry news.', stat: ['B2B', 'industry voice'] },
   { t: 'company', name: 'Webacy', handle: '@mywebacy', url: 'https://x.com/mywebacy', img: 'webacy.png', pf: ['x', 'youtube'], role: 'One of the first hires. Made Web3 security make sense to everyday users.', stat: ['100K+', 'product users'] },
-  { t: 'company', name: 'Asymmetry', handle: '@asymmetryfin', url: 'https://x.com/asymmetryfin', img: 'asymmetry.png', pf: ['x'], role: 'GTM Specialist & Marketing Advisor. Ran the X account, positioning and global expansion.', stat: ['GTM', 'and positioning'] },
+  { t: 'company', name: 'Asymmetry', handle: '@asymmetryfin', url: 'https://x.com/asymmetryfin', img: 'asymmetry.png', pf: ['x'], role: 'GTM Specialist & Marketing Advisor. Ran the X account, positioning and global expansion.', stat: ['2024', 'Mar to Aug'] },
   { t: 'company', live: true, name: 'Capy', handle: '@capythoughts', url: 'https://x.com/capythoughts', img: 'capy.png', pf: ['x', 'youtube'], role: 'Part time Social & GTM Manager. Brand and founder social for an AI secrets manager.', stat: ['52', 'post launch calendar'] },
   { t: 'company', name: 'Doma OnAir', handle: 'Live show on X + YouTube', url: '#case-onair', caseId: 'onair', img: 'youtube.png', pf: ['x', 'youtube'], role: 'Created and produced it. Wrote every run of show.', stat: ['10,000+', 'listeners, 11 episodes'] },
   { t: 'people', name: 'Michael Ho', handle: '@mxchaelho', url: 'https://x.com/mxchaelho', initials: 'MH', av: '#3b6fe0', pf: ['x'], role: 'Ghostwrote as the market analyst. 3 to 4 originals a week.', stat: ['4.60%', 'engagement on originals'] },
@@ -313,7 +313,7 @@ cards.innerHTML = CASES.map(c => `
 $('#allCount').textContent = CASES.length;
 
 $('#writingRows').innerHTML = WRITING.map(([t, s, u]) => `<li><a href="${u}" target="_blank" rel="noopener"><span><span class="t">${t}</span></span><span class="y">${s} ↗</span></a></li>`).join('');
-$('#expRows').innerHTML = EXPERIENCE.map(([r, o, s, y]) => `<li><div class="r"><span><span class="t">${r}, ${o}</span><span class="s">${s}</span></span><span class="y">${y}</span></div></li>`).join('');
+$('#expRows').innerHTML = EXPERIENCE.map(([r, o, s, y, u]) => { const inner = `<span><span class="t">${r}, ${o}</span><span class="s">${s}</span></span><span class="y">${y}${u ? ' ↗' : ''}</span>`; return `<li>${u ? `<a href="${u}" target="_blank" rel="noopener">${inner}</a>` : `<div class="r">${inner}</div>`}</li>`; }).join('');
 
 const seeAll = $('#seeAll');
 seeAll.addEventListener('click', () => {

@@ -114,7 +114,7 @@ body.intro-run .gated{filter:blur(14px);opacity:.55;pointer-events:none}
 .rule{display:block;width:100%;height:8px;color:var(--line)}
 .foot-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0 0}
 .sig-small{font-family:var(--sig);color:var(--muted);font-size:17px}
-.foot-links{display:flex;gap:16px;font-size:14px}
+.foot-links{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:14px}
 .foot-links a{text-decoration:underline;text-decoration-color:var(--chip-u);text-underline-offset:3px;color:var(--body)}
 .foot-links a:hover{color:var(--ink)}
 #bed{display:block;width:100vw;height:300px;margin-left:calc(50% - 50vw);margin-top:40px;pointer-events:none}
@@ -214,5 +214,12 @@ body.intro-run .gated{filter:blur(14px);opacity:.55;pointer-events:none}
   .acc-grid{grid-template-columns:1fr}
   #accounts .section-head{flex-direction:column;gap:10px;align-items:flex-start}
 }
-@media (max-width:430px){.nav nav a[href*="x.com"]{display:none}.nav nav{gap:11px}}
+@media (max-width:430px){.nav nav{gap:10px}.nav nav a{font-size:13.5px}}
 @media (prefers-reduced-motion:reduce){.formats .track{animation:none;flex-wrap:wrap;width:auto}}
+
+.nav nav a.ico{display:grid;place-items:center;padding:4px;color:var(--ink)}
+.nav nav a.ico:hover{opacity:.65}
+.foot-links a.ico-l{display:inline-flex;align-items:center;gap:6px}
+.foot-links a.ico-l svg{color:var(--ink)}
+@media (max-width:430px){.nav nav a[href="#writing"]{display:none}.nav nav{gap:12px}}
+@media (max-width:360px){.nav nav a[href="#experience"]{display:none}}

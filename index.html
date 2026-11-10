@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wes Deacon · Social, content and growth</title>
+<meta name="description" content="Wes Deacon builds founder voices, content engines and X audiences for crypto and AI companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Homemade+Apple&family=Caveat:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2216%22 fill=%22%23ff7a2e%22/%3E%3Ctext x=%2216%22 y=%2221%22 font-size=%2214%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Georgia%22 font-style=%22italic%22%3Ewd%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script>
+  try{const t=localStorage.getItem('wd-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.className='dark'}}catch(e){}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+<div class="sunburst" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="#top" class="mark" aria-label="Wes Deacon, home">wd</a>
+  <nav aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#writing">Writing</a>
+    <a href="#experience">Experience</a>
+    <a href="https://x.com/wesdeth" target="_blank" rel="noopener">X</a>
+    <button class="theme" id="themeBtn" aria-label="Toggle dark mode">
+      <svg class="sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <h1 class="signature" aria-label="Wes Deacon"><span>wes deacon</span></h1>
+    <p class="hello">hey there, pull up a chair</p>
+
+    <div class="intro" id="intro">
+      <p>I've spent six years <span class="chip u" data-tip="Founder accounts, brand accounts, live shows and the systems behind them."><img src="assets/x.png" alt="">growing audiences</span> in crypto, turning technical products into stories people actually follow. I started as one of the first employees at <a class="chip u" href="#experience" data-tip="Head of Growth for a Web3 security product. Also ran a 100 student externship."><img src="assets/webacy.png" alt="">Webacy</a>, where I helped take a Web3 security product to <mark class="hl">100K+ users</mark>.</p>
+
+      <p>At <a class="chip u" href="#case-ens-edu" data-case="ens-edu" data-tip="Head of Social & Marketing. Support tickets became the content calendar."><img src="assets/ens.png" alt="">ENS</a> I ran social and content, turned support tickets into tutorials, and helped <span class="script">lift .eth renewals 45%</span> in a quarter. I also made the launch video for ENS on <a class="chip u" href="#case-paypal" data-case="paypal" data-tip="Official launch video, co-marketed with both partners' PR teams."><img src="assets/paypal.png" alt="">PayPal</a> and <a class="chip u" href="#case-paypal" data-case="paypal" data-tip="Follow-up short-form kept the story going after launch."><img src="assets/venmo.png" alt="">Venmo</a>, which pulled <span class="tag">447K views</span>.</p>
+
+      <p>Most recently I was Head of Social at <a class="chip u" href="#case-founders" data-case="founders" data-tip="DomainFi protocol. I ran X, LinkedIn and YouTube and oversaw design."><img src="assets/doma.png" alt="">Doma Protocol</a>. I built two founder voices on X, grew their impressions <mark class="hl">429%</mark>, created our live show <a class="chip u" href="#case-onair" data-case="onair" data-tip="10,000+ listeners across 11 episodes. I wrote every run of show."><img src="assets/youtube.png" alt="">Doma OnAir</a>, and took the brand account to <span class="script">1.55M impressions</span> in six months.</p>
+
+      <p>I build my own tools too: voice agents, reply finders, Telegram alerts, and <a class="chip u" href="#case-viralghost" data-case="viralghost" data-tip="A voice-first AI social manager for auto shops. 16 beta users."><img src="assets/github.png" alt="">ViralGhost</a>. Now I'm taking that playbook into AI.</p>
+
+      <p>I live in Ravenna, Ohio with my wife Kendra and our horses. If I'm not online I'm at the barn or standing next to a smoker.</p>
+
+      <p>Here's some of the work.</p>
+    </div>
+  </section>
+
+  <section class="work gated" id="work" aria-labelledby="work-h">
+    <div class="section-head">
+      <h2 id="work-h">Case studies</h2>
+      <button class="see-all" id="seeAll" aria-expanded="false">See all <span id="allCount">9</span></button>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="list gated" id="writing" aria-labelledby="writing-h">
+    <div class="section-head"><h2 id="writing-h">Writing</h2></div>
+    <ul class="rows" id="writingRows"></ul>
+  </section>
+
+  <section class="list gated" id="experience" aria-labelledby="exp-h">
+    <div class="section-head"><h2 id="exp-h">Experience</h2></div>
+    <ul class="rows" id="expRows"></ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <svg class="rule" viewBox="0 0 560 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5 C 120 2, 260 7, 380 4 S 520 3, 558 2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <div class="foot-row">
+    <span class="sig-small">wes</span>
+    <div class="foot-links">
+      <a href="https://x.com/wesdeth" target="_blank" rel="noopener">X</a>
+      <a href="https://github.com/wesdeth" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:wdeacon20@jcu.edu">wdeacon20@jcu.edu</a>
+    </div>
+  </div>
+  <canvas id="bed" aria-hidden="true"></canvas>
+</footer>
+
+<div class="intro-ctl" id="introCtl" role="group" aria-label="Intro animation">
+  <button id="ffBtn"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M3 5v14l9-7zM12 5v14l9-7z"/></svg>Fast forward</button>
+  <button id="skipBtn">Skip</button>
+</div>
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="sheet-backdrop" data-close></div>
+  <article class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" tabindex="-1"></article>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

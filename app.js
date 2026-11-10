@@ -125,7 +125,7 @@ const CASES = [
   note: ''
 },
 {
-  id: 'brand', icon: 'x.png', org: 'D3 · Doma Protocol', year: '2026',
+  id: 'brand', icon: 'doma.png', org: 'D3 · Doma Protocol', year: '2026',
   title: 'Doubling down on the Doma brand account',
   frame: '#efe9dc', scr: '#ffffff',
   mock: `
@@ -224,25 +224,31 @@ const CASES = [
   note: ''
 },
 {
-  id: 'capy', icon: 'capy.png', org: 'Capy.sc', year: '2026', extra: true,
-  title: 'Launch GTM for a developer security tool',
+  id: 'capy', icon: 'capy.png', org: 'Capy.sc · @capythoughts', year: 'Now',
+  title: 'Running social for Capy, an AI secrets manager',
   frame: '#121212', scr: '#0a0a0a',
   mock: `
-  <div class="m mono" style="padding:4.6cqw 5.6cqw;color:#d6d6d6;font-size:2.4cqw;line-height:1.75">
-    <div style="display:flex;gap:1.2cqw;margin-bottom:2.6cqw"><span style="width:1.8cqw;height:1.8cqw;border-radius:50%;background:#ff5f57"></span><span style="width:1.8cqw;height:1.8cqw;border-radius:50%;background:#febc2e"></span><span style="width:1.8cqw;height:1.8cqw;border-radius:50%;background:#28c840"></span></div>
-    <div><span style="color:#7ee787">~/app</span> $ npm i -g @capysc/cli</div>
-    <div><span style="color:#7ee787">~/app</span> $ cat .env</div>
-    <div style="color:#8b949e">STRIPE_KEY=<span style="color:#ffa657">capy:enc:9f2c…a71e</span></div>
-    <div style="color:#8b949e">DATABASE_URL=<span style="color:#ffa657">capy:enc:41bd…0c3f</span></div>
-    <div style="margin-top:2cqw;color:#fff"># leaked .env, nothing usable inside</div>
+  <div class="m" style="padding:4.4cqw 5.6cqw;color:#e7e7e7">
+    <div style="background:#16181c;border:1px solid #2a2d33;border-radius:2.4cqw;padding:3cqw;max-width:74%">
+      <div style="display:flex;gap:1.6cqw;align-items:center;margin-bottom:1.8cqw">
+        <img src="assets/capy.png" style="width:5cqw;border-radius:50%" alt="">
+        <div style="font-size:2.3cqw"><b>Capy</b> <span style="color:#71767b">@capythoughts</span></div>
+      </div>
+      <div style="font-size:3cqw;line-height:1.35;color:#fff">Sharing .env files is so 2019.</div>
+      <div style="display:flex;gap:4cqw;margin-top:2cqw;font-size:2cqw;color:#71767b"><span>Reply</span><span>Repost</span><span>Like</span></div>
+    </div>
+    <div class="mono" style="margin-top:3.4cqw;font-size:2.3cqw;line-height:1.75;color:#d6d6d6">
+      <div><span style="color:#7ee787">~/app</span> $ npm i -g @capysc/cli</div>
+      <div style="color:#8b949e">STRIPE_KEY=<span style="color:#ffa657">capy:enc:9f2c…a71e</span></div>
+    </div>
   </div>`,
-  tldr: 'Go-to-market and social strategy for Capy, a secrets manager for vibe coders and small AI-native teams. The wedge: a leaked .env file no longer gives away usable secrets.',
-  brief: 'A launch-stage developer tool with zero-follower accounts, entering a category full of enterprise players.',
-  audience: ['<b>Vibe coders and indie hackers</b> shipping fast with AI tools.', '<b>Small AI-native engineering teams</b> sharing secrets in Slack.'],
-  approach: ['<b>Outcome-led positioning</b> instead of another broad secrets-manager pitch.', '<b>Founder-led distribution.</b> A week of useful replies before the brand starts broadcasting.', '<b>A 52-post launch calendar</b> across brand X, founder X and LinkedIn, plus one short-form video system for YouTube, Instagram and TikTok.', '<b>The Leak Report.</b> A research franchise with one sourced statistic per asset.'],
-  stats: [['52', 'post launch calendar'], ['3', 'written channels']],
-  links: [],
-  note: 'Work in progress.'
+  tldr: 'I run social and go-to-market for Capy, an agent-native secrets manager, starting from zero-follower brand accounts. The wedge: a leaked .env file no longer gives away usable secrets.',
+  brief: 'AI agents now build and deploy apps, then stop to ask a human for a Stripe key. Capy fixes that step. The challenge on social was a launch-stage developer tool with no audience, entering a category full of enterprise players.',
+  audience: ['<b>Vibe coders and indie hackers</b> shipping fast with AI tools.', '<b>Small AI-native engineering teams</b> still sharing .env files in Slack.'],
+  approach: ['<b>Outcome-led positioning</b> instead of another broad secrets-manager pitch.', '<b>Founder-led distribution.</b> A week of useful replies from the founder before the brand starts broadcasting.', '<b>A 52-post launch calendar</b> across brand X, founder X and LinkedIn, plus one short-form video system cross-posted to YouTube, Instagram and TikTok.', '<b>The Leak Report.</b> A research franchise with one sourced statistic per asset, styled as dark editorial developer-security graphics.', '<b>Developer pain points first.</b> Posts attack insecure habits like pasting keys in Slack, not competitors, and every lesson returns to a direct install action.'],
+  stats: [['0 → live', 'brand account built from scratch'], ['52', 'post launch calendar'], ['5', 'channels']],
+  links: [['@capythoughts on X', 'https://x.com/capythoughts'], ['capy.sc', 'https://capy.sc']],
+  note: 'In progress. I will add growth numbers once there is enough history to report.'
 }];
 
 const WRITING = [
@@ -254,13 +260,49 @@ const WRITING = [
 ];
 
 const EXPERIENCE = [
+  ['Social & GTM', 'Capy.sc', 'Brand and founder social for an AI secrets manager', 'Now'],
+  ['Builder', 'ViralGhost, MichaelBot, Social Alerts', 'AI tools for social teams', 'Now'],
   ['Head of Social', 'D3 · Doma Protocol', 'X, LinkedIn, YouTube, founder voices, Doma OnAir, design team', '2025–26'],
   ['Head of Social & Marketing', 'ENS Labs', 'Content, education, partner launches, paid social', 'Earlier'],
-  ['Head of Growth', 'Webacy', 'One of the first hires. Web3 security growth to 100K+ users', 'Earlier'],
-  ['Independent', 'Capy.sc, ViralGhost, ADAS View', 'GTM, AI social tools and B2B content', 'Now']
+  ['Head of Growth', 'Webacy', 'One of the first hires. Web3 security growth to 100K+ users', 'Earlier']
 ];
 
 /* ---------- render ---------- */
+const ORDER = ['founders', 'capy', 'brand', 'ens-edu', 'paypal', 'onair', 'applications', 'agents', 'viralghost'];
+CASES.sort((a, b) => ORDER.indexOf(a.id) - ORDER.indexOf(b.id));
+CASES.forEach((c, k) => { c.extra = k >= 6; });
+
+const ACCOUNTS = [
+  { t: 'company', name: 'ENS', handle: '@ensdomains', url: 'https://x.com/ensdomains', img: 'ens.png', pf: ['x', 'youtube'], role: 'Head of Social & Marketing. Tutorials, partner launches, paid social.', stat: ['+12.1%', 'followers in 3 months'] },
+  { t: 'company', name: 'Doma Protocol', handle: '@domaprotocol', url: 'https://x.com/domaprotocol', img: 'doma.png', pf: ['x', 'youtube'], role: 'Head of Social. Weekly threads, launches, Doma OnAir, LinkedIn and YouTube.', stat: ['1.55M', 'impressions in 6 months'] },
+  { t: 'company', name: 'D3', handle: '@D3inc', url: 'https://x.com/D3inc', img: 'd3.png', pf: ['x'], role: 'Corporate voice for the company behind Doma. Partnerships and industry news.', stat: ['B2B', 'industry voice'] },
+  { t: 'company', name: 'Webacy', handle: '@mywebacy', url: 'https://x.com/mywebacy', img: 'webacy.png', pf: ['x', 'youtube'], role: 'One of the first hires. Made Web3 security make sense to everyday users.', stat: ['100K+', 'product users'] },
+  { t: 'company', live: true, name: 'Capy', handle: '@capythoughts', url: 'https://x.com/capythoughts', img: 'capy.png', pf: ['x', 'youtube'], role: 'Running social for an AI secrets manager, from zero followers.', stat: ['52', 'post launch calendar'] },
+  { t: 'company', name: 'Doma OnAir', handle: 'Live show on X + YouTube', url: '#case-onair', caseId: 'onair', img: 'youtube.png', pf: ['x', 'youtube'], role: 'Created and produced it. Wrote every run of show.', stat: ['10,000+', 'listeners, 11 episodes'] },
+  { t: 'people', name: 'Michael Ho', handle: '@mxchaelho', url: 'https://x.com/mxchaelho', initials: 'MH', av: '#3b6fe0', pf: ['x'], role: 'Ghostwrote as the market analyst. 3 to 4 originals a week.', stat: ['4.60%', 'engagement on originals'] },
+  { t: 'people', name: 'Fred Hsu', handle: '@heyheyfred', url: 'https://x.com/heyheyfred', initials: 'FH', av: '#e08a1e', pf: ['x'], role: 'Ghostwrote as the domain veteran. Operator stories and real estate analogies.', stat: ['+429%', 'founder impressions'] },
+  { t: 'people', name: 'Inderpreet Singh', handle: '@InderpreetSingh', url: 'https://x.com/InderpreetSingh', initials: 'IS', av: '#2b9c74', pf: ['x'], role: 'Product voice. Daily engagement and build-in-public updates.', stat: ['Daily', 'reply engine'] },
+  { t: 'people', name: 'Kendra Deacon', handle: '@kendradeacon_', url: 'https://www.instagram.com/kendradeacon_/', initials: 'KD', av: '#d9467a', pf: ['instagram'], role: 'Skincare Reels plus SEO and Meta ads for her shop on $500 a month.', stat: ['+300%', 'sales in 3 months'] },
+  { t: 'people', name: 'Wes Deacon', handle: '@wesdeth', url: 'https://x.com/wesdeth', initials: 'WD', av: '#1b1b1b', pf: ['x'], role: 'My own account. Building in public, AI tools and marketing notes.', stat: ['DMs open', 'say hi'] }
+];
+const PF = { x: 'assets/x.png', youtube: 'assets/youtube.png', instagram: 'assets/instagram.png' };
+$('#accGrid').innerHTML = ACCOUNTS.map(a => `
+  <a class="acc" data-t="${a.t}" href="${a.url}" ${a.caseId ? `data-case="${a.caseId}"` : 'target="_blank" rel="noopener"'}>
+    <span class="go">${a.caseId ? 'Open' : 'View'} ↗</span>
+    <div class="top">
+      <div class="av" style="--av:${a.av || '#fff'}">${a.img ? `<img src="assets/${a.img}" alt="">` : a.initials}</div>
+      <div><div class="nm">${a.name}${a.live ? '<span class="live">Now</span>' : ''}</div><div class="hd">${a.handle}</div></div>
+    </div>
+    <p class="role">${a.role}</p>
+    <div class="bottom"><div class="st"><b>${a.stat[0]}</b><span>${a.stat[1]}</span></div><div class="pf">${a.pf.map(p => `<img src="${PF[p]}" alt="${p}">`).join('')}</div></div>
+  </a>`).join('');
+$$('.filters button').forEach(b => b.addEventListener('click', () => {
+  $$('.filters button').forEach(x => x.setAttribute('aria-selected', x === b));
+  $$('.acc').forEach(a => a.classList.toggle('hide', b.dataset.f !== 'all' && a.dataset.t !== b.dataset.f));
+}));
+const FORMATS = ['Founder ghostwriting', 'X threads', 'Reply strategy', 'Live shows', 'Short-form video', 'Shorts and Reels', 'Launch campaigns', 'Animated stat posts', 'Weekly recap blogs', 'Co-marketing', 'Paid social A/B tests', 'Creator programs', 'Content calendars', 'LinkedIn', 'AI voice agents', 'Telegram alerts'];
+$('#formats').innerHTML = [...FORMATS, ...FORMATS].map(f => `<span>${f}</span>`).join('');
+
 const cards = $('#cards');
 cards.innerHTML = CASES.map(c => `
   <button class="card${c.extra ? ' extra' : ''}" style="--frame:${c.frame};--scr:${c.scr}" data-case="${c.id}" aria-label="Open case study: ${c.title}">

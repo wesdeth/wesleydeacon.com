@@ -21,13 +21,13 @@ const CASES = [
       <svg viewBox="0 0 120 50" style="width:30cqw;margin-top:2cqw"><path d="M2 46 C 25 44, 40 40, 55 34 S 85 18, 118 4" fill="none" stroke="#ff6b57" stroke-width="2.4" stroke-linecap="round"/><path d="M2 46 C 25 44, 40 40, 55 34 S 85 18, 118 4 V50 H2Z" fill="url(#g1)" opacity=".5"/><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b57"/><stop offset="1" stop-color="#ff6b57" stop-opacity="0"/></linearGradient></defs></svg>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;margin-top:5cqw">
-      ${['Michael Ho|The market analyst|#4c8dff','Fred Hsu|The domain veteran|#ffb547'].map(s => { const [n, l, c] = s.split('|'); return `
+      ${['Michael Ho|The market analyst|#4c8dff|Data posts,RWA comparisons','Fred Hsu|The domain veteran|#ffb547|Operator stories,Real estate comps'].map(s => { const [n, l, c, tags] = s.split('|'); return `
       <div style="background:#1b1b1d;border:1px solid #2a2a2d;border-radius:2cqw;padding:2.6cqw">
         <div style="display:flex;gap:1.6cqw;align-items:center;margin-bottom:2cqw">
           <div style="width:5cqw;height:5cqw;border-radius:50%;background:${c}"></div>
           <div><div style="font-size:2.3cqw;font-weight:600">${n}</div><div style="font-size:1.9cqw;color:#8b8b8b">${l}</div></div>
         </div>
-        ${sk(100, '#2e2e31')}${sk(86, '#2e2e31')}${sk(62, '#2e2e31')}
+        <div style="display:flex;flex-wrap:wrap;gap:1.2cqw">${tags.split(',').map(t => `<span style="font-size:1.9cqw;color:#cfcfd2;background:#262629;border-radius:9cqw;padding:.7cqw 1.8cqw">${t}</span>`).join('')}</div>
       </div>`; }).join('')}
     </div>
   </div>`,
@@ -35,7 +35,33 @@ const CASES = [
   brief: 'Doma turns traditional domain names into onchain assets that can be traded. The idea is new, and the people we needed to reach trust individuals and peers more than brand accounts. Our co-founders, Michael Ho and Fred Hsu, have decades of domain and market experience, but their accounts posted too rarely and too generically to show it.',
   audience: ['<b>Domain investors.</b> Long-time owners who know the asset, follow industry voices closely and are skeptical of crypto.', '<b>Crypto and RWA traders.</b> People who need a clear reason to treat domains as a serious asset class.', '<b>Partners, press and event audiences.</b> People who check a founder\'s feed before a meeting, an AMA or a conference.'],
   approach: ['<b>Two lanes.</b> Michael became the market analyst: data, real-world-asset comparisons and why domains lack price discovery, exits and partial ownership. Fred became the domain veteran: first-hand stories from early domain companies and plain comparisons to real estate.', '<b>A weekly mix.</b> Michael posted three to four originals a week, including a data post and a comparison post. Fred\'s week centered on operator stories, plus a contrast post, a prediction, a personal post and clips from each appearance.', '<b>Reply finders.</b> Agents scanned curated lists of priority accounts in domains, RWAs, DeFi and AI, scored posts for topic fit, evidence and risk, and surfaced only the strongest reply opportunities with suggested angles.', '<b>Team alerts.</b> A shared Telegram group got every new founder post for amplification, flags on critical mentions and a twice-daily check against a three-replies-a-day goal.', '<b>Humans hit post.</b> The agents only suggested and alerted. Every public reply stayed a human decision.'],
-  stats: [['+429%', 'founder X impressions'], ['4.60%', 'engagement on originals (sampled week)'], ['1.02%', 'engagement on replies, same week']],
+
+  body: `
+    <div class="cs-callout"><h5>TL;DR</h5><p>I gave each of D3's two co-founders a distinct lane on X and LinkedIn, then backed them with AI voice profiles and agents that found the right conversations to join. In the first six months, founder X impressions grew 429%. Alongside the founder work, I launched and owned Doma OnAir, our own live show for the domain community, which reached 10,000+ listeners across 11 episodes.</p>
+      <a class="tw" href="https://x.com/heyheyfred/status/2078181691529801870" target="_blank" rel="noopener">
+        <div class="tw-h"><img src="assets/fred.jpg" alt=""><div><b>Fred Hsu</b><span>@heyheyfred · Jul 17, 2026</span></div><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <p>You don't meet a lot of new domainers anymore. Makes sense when you think about it.</p><p>The great .coms were registered long ago and the owners don't always let go. That's why new TLDs matter more than people admit.</p><p>.xyz is a great example, got picked up by web3 and startups fast enough that most people missed it happening. The pattern repeats: certain extensions quietly become the standard for a new category before the category even has a name.</p><p>I keep my eyes on those trends. Vets, which extension do you think is next?</p>
+        <div class="tw-f"><span>2.1K views</span><span>46 likes</span><span>18 replies</span><span>View on X ↗</span></div>
+      </a>
+    </div>
+    <p>D3 builds Doma Protocol, which turns traditional domain names into onchain assets that can be traded. The idea is new, and the people we needed to reach trust individuals and peers more than brand accounts. Our co-founders, Michael Ho and Fred Hsu, have decades of domain-industry and market experience, but their X accounts posted too rarely and too generically to show it. We also had no show of our own where domain investors could hear from the people building and buying in the space.</p>
+    <h4>1. The audience</h4>
+    <ul class="pts"><li><b>Domain investors:</b> long-time domain owners who know the asset well, follow industry voices closely, and are skeptical of crypto.</li><li><b>Crypto and RWA market participants:</b> traders and investors following real-world assets, who need a clear reason to treat domains as a serious asset class.</li><li><b>Partners, press, and event audiences:</b> people who check a founder's feed or catch a live show before a meeting, an AMA, or a conference.</li></ul>
+    <h4>2. My approach</h4>
+    <h6>Two founder lanes</h6>
+    <ul class="pts"><li><b>Michael Ho, the market analyst:</b> data, real-world-asset comparisons, and the case that domains are overlooked because their market lacks a price, an easy exit, and partial ownership.</li><li><b>Fred Hsu, the domain veteran:</b> first-hand stories from early domain companies and plain comparisons to real estate and infrastructure.</li><li><b>A weekly mix for each:</b> Michael posted three to four originals a week, including a data post and a comparison post. Fred's week centered on operator stories, plus a contrast post, a prediction, a personal post, and clips from each AMA or podcast appearance.</li><li><b>AI-native workflow:</b> used generative AI (Perplexity, OpenAI) for rapid first drafts and outlines to speed up production.</li></ul>
+    <figure class="cs-fig"><a href="assets/cs-founders-lanes.jpg" target="_blank" rel="noopener"><span class="fr"><img src="assets/cs-founders-lanes.jpg" alt="Two weeks of the content calendar across Doma X, D3 X, D3 LinkedIn, events and email" loading="lazy" width="1219" height="842"></span></a><figcaption>Two weeks of the content calendar across the brand and founder accounts.</figcaption></figure>
+    <h4>3. Agents that find conversations and reply opportunities</h4>
+    <p>I also built agents that watched X for the founders:</p>
+    <ul class="pts"><li><b>Reply finders:</b> scanned curated lists of priority accounts in domains, real-world assets, DeFi, and AI. They scored each post for topic fit, evidence, account fit, and risk, and surfaced only the strongest reply opportunities for Michael and Fred, with suggested angles.</li><li><b>Conversation scanners:</b> found active discussions about AI, blockchain, and domains that didn't mention D3 or Doma yet, so the team could join conversations it wasn't already part of.</li><li><b>Daily news feed:</b> a daily list of sourced market and domain-industry news to anchor each founder's posts in something current.</li><li><b>Team alerts:</b> a shared Telegram group got each new founder post for team amplification, flags on critical mentions, and a twice-daily check against a three-replies-per-day goal for each founder.</li></ul>
+    <p>The agents only suggested and alerted. Nothing was posted or replied to automatically, so every public reply stayed a human decision.</p>
+    <figure class="cs-fig"><a href="assets/cs-founders-agents.jpg" target="_blank" rel="noopener"><span class="fr"><img src="assets/cs-founders-agents.jpg" alt="MichaelBot, an X voice engine generating draft posts in Michael Ho's voice" loading="lazy" width="945" height="843"></span></a><figcaption>MichaelBot, the voice engine behind Michael's drafts.</figcaption></figure>
+    <h4>Results</h4>
+    <ul class="pts"><li>Founder X impressions grew <mark class="hl">429%</mark> in the first four months.</li><li>Original posts became the main driver. In a sampled week of Michael Ho's analytics, original posts and threads had a <mark class="hl">4.60%</mark> engagement rate, compared with 1.02% for replies.</li><li>Both founders kept a steady weekly cadence through launches, AMAs, and conferences, with each account staying in its own lane.</li><li>Doma OnAir reached <span class="script">10,000+ listeners</span> across 11 episodes and became a regular place for domain investors to hear from people buying, building, and launching in the space.</li></ul>
+    <figure class="cs-fig"><a href="assets/cs-founders-stats.jpg" target="_blank" rel="noopener"><span class="fr"><img src="assets/cs-founders-stats.jpg" alt="X analytics: 1,004,942 impressions, up 429%, and 4.9% engagement rate, up 1027%" loading="lazy" width="731" height="469"></span></a><figcaption>X analytics: 1,004,942 impressions (+429%) and a 4.9% engagement rate.</figcaption></figure>
+    <h4>Work samples</h4>
+    <div class="ws"><a href="https://x.com/heyheyfred/status/2078181691529801870" target="_blank" rel="noopener"><img src="assets/x.png" alt=""><span><b>Fred Hsu post</b><em>Founder post on X</em></span><i>↗</i></a><a href="https://www.youtube.com/live/QHXDlqrP3u8" target="_blank" rel="noopener"><img src="assets/youtube.png" alt=""><span><b>Doma OnAir full episode</b><em>Live show</em></span><i>↗</i></a><a href="https://youtube.com/shorts/_5zs_3utRfM" target="_blank" rel="noopener"><img src="assets/youtube.png" alt=""><span><b>Doma OnAir short-form clip</b><em>YouTube Short</em></span><i>↗</i></a><a href="https://x.com/domaprotocol/status/2047361212552478983" target="_blank" rel="noopener"><img src="assets/doma.png" alt=""><span><b>Doma × Stripe and Tempo partnership post</b><em>Brand post on X</em></span><i>↗</i></a><a href="https://blog.doma.xyz/doma-weekly-frontier-launch-product-updates-and-steady-growth/" target="_blank" rel="noopener"><img src="assets/doma.png" alt=""><span><b>Doma Weekly: Frontier Launch, Product Updates and Steady Growth</b><em>Blog</em></span><i>↗</i></a><a href="https://exclusive-garage-18a.notion.site/Case-Study-2-Building-Two-Founder-Voices-on-X-40116635fd7c80f8b018d1e4e039914b" target="_blank" rel="noopener"><img src="assets/notion.png" alt=""><span><b>Read the original on Notion</b><em>Case study</em></span><i>↗</i></a></div>`,
+  stats: [['+429%', 'founder X impressions'], ['1M+', 'impressions in the window'], ['10,000+', 'Doma OnAir listeners']],
   links: [['Read the full case study', 'https://exclusive-garage-18a.notion.site/Case-Study-2-Building-Two-Founder-Voices-on-X-40116635fd7c80f8b018d1e4e039914b']],
   note: 'Results are from platform analytics I tracked while in the role.'
 },
@@ -357,18 +383,20 @@ let lastFocus = null;
 function openCase(id) {
   const c = CASES.find(x => x.id === id); if (!c) return;
   lastFocus = document.activeElement;
+  sheet.style.setProperty('--frame', c.frame);
   sheet.innerHTML = `
     <div class="hero-card" style="--frame:${c.frame};--scr:${c.scr}"><div class="screen" style="container-type:inline-size">${c.mock}</div>
       <button class="close" data-close aria-label="Close"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="inner">
       <div class="meta"><img src="assets/${c.icon}" alt="">${c.org} · ${c.year}</div>
       <h3 id="sheetTitle">${c.title}</h3>
-      <p class="tldr">${c.tldr}</p>
+      ${c.body ? '' : `<p class="tldr">${c.tldr}</p>`}
       <div class="stats">${c.stats.map(([a, b]) => `<div class="stat"><b>${a}</b><span>${b}</span></div>`).join('')}</div>
-      <h4>The brief</h4><p>${c.brief}</p>
+      ${c.body ? `<div class="cs-body">${c.body}</div>` : `<h4>The brief</h4><p>${c.brief}</p>
       <h4>Who it was for</h4><ul class="pts">${c.audience.map(a => `<li>${a}</li>`).join('')}</ul>
       <h4>What I did</h4><ul class="pts">${c.approach.map(a => `<li>${a}</li>`).join('')}</ul>
       ${c.links.length ? `<h4>See the work</h4><div class="links">${c.links.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join('')}</div>` : ''}
+      `}
       ${c.note ? `<p class="note">${c.note}</p>` : ''}
     </div>`;
   wrap.classList.add('open'); wrap.setAttribute('aria-hidden', 'false');

@@ -551,4 +551,38 @@ if(reduce){
   addEventListener('resize',()=>frame(0));
   $('#themeBtn').addEventListener('click',()=>frame(0));
 }
+
+/* ---------- analytics (Umami) ---------- */
+const track = (name, data) => { try { window.umami && window.umami.track(name, data); } catch (e) {} };
+document.addEventListener('click', e => {
+  const el = e.target.closest('a,button'); if (!el) return;
+  const href = el.getAttribute('href') || '';
+  if (el.matches('.card')) return track('case-study-open', { id: el.dataset.case });
+  if (el.matches('.acc')) return track('account-click', { handle: (el.querySelector('.hd') || {}).textContent || href });
+  if (el.matches('.post')) return track('post-click', { url: href });
+  if (el.matches('.filters button')) return track('account-filter', { filter: el.dataset.f });
+  if (el.id === 'seeAll') return track('see-all-cases');
+  if (el.id === 'skipBtn') return track('intro-skip');
+  if (el.id === 'ffBtn') return track('intro-fast-forward');
+  if (el.id === 'themeBtn') return track('theme-toggle', { to: document.documentElement.classList.contains('dark') ? 'dark' : 'light' });
+  if (href.startsWith('mailto:')) return track('email-click');
+  if (/linkedin\.com/.test(href)) return track('linkedin-click', { where: el.closest('.nav') ? 'nav' : 'footer' });
+  if (/x\.com\/wesdeth/.test(href)) return track('x-profile-click', { where: el.closest('.nav') ? 'nav' : 'footer' });
+  if (/github\.com/.test(href)) return track('github-click');
+  if (el.closest('.sheet .links')) return track('case-study-link', { url: href });
+  if (el.closest('#writingRows')) return track('writing-click', { url: href });
+  if (el.closest('#expRows')) return track('experience-click', { url: href });
+  if (el.matches('.chip[data-case]')) return track('intro-chip', { id: el.dataset.case });
+  if (href.startsWith('#')) return track('nav-click', { to: href });
+  if (/^https?:/.test(href)) return track('outbound-click', { url: href });
+}, true);
+// tagged links like ?ref=fundamental show up as their own event
+const refTag = new URLSearchParams(location.search).get('ref');
+if (refTag) { const fire = (n = 0) => window.umami ? track('tagged-visit', { ref: refTag }) : n < 20 && setTimeout(() => fire(n + 1), 250); fire(); }
+// how far down the page people get
+let maxDepth = 0;
+addEventListener('scroll', () => {
+  const d = Math.round((scrollY + innerHeight) / document.documentElement.scrollHeight * 4) * 25;
+  if (d > maxDepth && d >= 50) { maxDepth = d; track('scroll-depth', { percent: d }); }
+}, { passive: true });
 })();

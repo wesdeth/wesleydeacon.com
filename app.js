@@ -579,6 +579,15 @@ document.addEventListener('click', e => {
 // tagged links like ?ref=fundamental show up as their own event
 const refTag = new URLSearchParams(location.search).get('ref');
 if (refTag) { const fire = (n = 0) => window.umami ? track('tagged-visit', { ref: refTag }) : n < 20 && setTimeout(() => fire(n + 1), 250); fire(); }
+// time actually spent with the tab visible, so real readers stand out from 0s scanners
+let seenMs = 0, lastTick = Date.now();
+const marks = [[15, 'read-15s'], [45, 'read-45s'], [120, 'read-2m'], [300, 'read-5m']];
+setInterval(() => {
+  const now = Date.now();
+  if (document.visibilityState === 'visible') seenMs += now - lastTick;
+  lastTick = now;
+  while (marks.length && seenMs >= marks[0][0] * 1000) track(marks.shift()[1]);
+}, 1000);
 // how far down the page people get
 let maxDepth = 0;
 addEventListener('scroll', () => {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://wesleydeacon.com/sitemap.xml
+Sitemap: https://wesleydeacon.com/sitemap.xml
